@@ -71,6 +71,10 @@ namespace DTO
 		public string GioiTinh;
 		public string Tennhom;
 		public double Diem;
+		public SinhVien()
+		{
+
+		}
 		public SinhVien(string mSSV, string tenSV, string ngaySinh, string gioiTinh, string tennhom, double diem)
 		{
 			MSSV = mSSV;

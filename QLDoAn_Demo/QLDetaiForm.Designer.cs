@@ -76,6 +76,7 @@
 			this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -312,9 +313,9 @@
 			this.btnPhanCongCD.BackColor = System.Drawing.Color.LightCyan;
 			this.btnPhanCongCD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnPhanCongCD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnPhanCongCD.Location = new System.Drawing.Point(745, 270);
+			this.btnPhanCongCD.Location = new System.Drawing.Point(785, 258);
 			this.btnPhanCongCD.Name = "btnPhanCongCD";
-			this.btnPhanCongCD.Size = new System.Drawing.Size(194, 37);
+			this.btnPhanCongCD.Size = new System.Drawing.Size(151, 42);
 			this.btnPhanCongCD.TabIndex = 6;
 			this.btnPhanCongCD.Text = "Phân công giáo viên chấm điểm";
 			this.btnPhanCongCD.UseVisualStyleBackColor = false;
@@ -335,6 +336,7 @@
             this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13,
+            this.columnHeader24,
             this.columnHeader14,
             this.columnHeader15});
 			this.lvQuyenDoAn.FullRowSelect = true;
@@ -343,7 +345,7 @@
 			this.lvQuyenDoAn.Location = new System.Drawing.Point(6, 41);
 			this.lvQuyenDoAn.MultiSelect = false;
 			this.lvQuyenDoAn.Name = "lvQuyenDoAn";
-			this.lvQuyenDoAn.Size = new System.Drawing.Size(730, 516);
+			this.lvQuyenDoAn.Size = new System.Drawing.Size(773, 516);
 			this.lvQuyenDoAn.TabIndex = 2;
 			this.lvQuyenDoAn.UseCompatibleStateImageBehavior = false;
 			this.lvQuyenDoAn.View = System.Windows.Forms.View.Details;
@@ -356,22 +358,22 @@
 			// columnHeader12
 			// 
 			this.columnHeader12.Text = "Tên đề tài";
-			this.columnHeader12.Width = 300;
+			this.columnHeader12.Width = 240;
 			// 
 			// columnHeader13
 			// 
 			this.columnHeader13.Text = "Tên nhóm";
-			this.columnHeader13.Width = 130;
+			this.columnHeader13.Width = 120;
 			// 
 			// columnHeader14
 			// 
 			this.columnHeader14.Text = "Tên giáo viên chấm điểm";
-			this.columnHeader14.Width = 135;
+			this.columnHeader14.Width = 145;
 			// 
 			// columnHeader15
 			// 
 			this.columnHeader15.Text = "Điểm";
-			this.columnHeader15.Width = 80;
+			this.columnHeader15.Width = 70;
 			// 
 			// tabPage4
 			// 
@@ -525,6 +527,11 @@
 			this.columnHeader25.Text = "Điểm";
 			this.columnHeader25.Width = 80;
 			// 
+			// columnHeader24
+			// 
+			this.columnHeader24.Text = "Ngày nộp";
+			this.columnHeader24.Width = 115;
+			// 
 			// QLDetaiForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,5 +608,6 @@
 		private System.Windows.Forms.ColumnHeader columnHeader25;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ColumnHeader columnHeader24;
 	}
 }

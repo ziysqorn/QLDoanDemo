@@ -49,7 +49,7 @@ namespace QLDoAn_Demo
 				{
 					if (dbConfig.CheckQuyenDoAnHaveGV(lvQuyenDoAn.Items[i].Text, dbConfig.Connection))
 					{
-						lvQuyenDoAn.Items[i].SubItems[3].Text = dbConfig.ReadGVCD(lvQuyenDoAn.Items[i].Text, dbConfig.Connection);
+						lvQuyenDoAn.Items[i].SubItems[4].Text = dbConfig.ReadGVCD(lvQuyenDoAn.Items[i].Text, dbConfig.Connection);
 					}
 				}
 			}

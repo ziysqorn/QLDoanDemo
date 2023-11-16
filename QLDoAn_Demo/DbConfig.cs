@@ -386,7 +386,7 @@ namespace DatabaseConfig
 		{
 			if (connection != null)
 			{
-				string query = "Select QuyenDoAn.STT, Detai.TenDetai, NhomSinhVien.Tennhom, QuyenDoan.Diem from QuyenDoan join Detai on QuyenDoan.MasoDetai=Detai.MasoDetai join NhomSinhVien on NhomSinhVien.Manhom = QuyenDoan.Manhom";
+				string query = "Select QuyenDoAn.STT, Detai.TenDetai, NhomSinhVien.Tennhom,QuyenDoan.Ngaynop, QuyenDoan.Diem from QuyenDoan join Detai on QuyenDoan.MasoDetai=Detai.MasoDetai join NhomSinhVien on NhomSinhVien.Manhom = QuyenDoan.Manhom";
 				SetCommand(query, connection);
 				if (Command != null)
 				{
@@ -395,10 +395,20 @@ namespace DatabaseConfig
 					int index = 0;
 					while (Reader.Read())
 					{
-						QuyenDoAn quyenDoAn = new QuyenDoAn(Reader[0].ToString(), Reader[1].ToString(), Reader[2].ToString(), "", Reader[3].ToString());
+						QuyenDoAn quyenDoAn = new QuyenDoAn(Reader[0].ToString(), Reader[1].ToString(), Reader[2].ToString(), "", Reader[4].ToString());
+						if (Reader[3] != DBNull.Value)
+						{
+							DateTime ngaynop = (DateTime)Reader[3];
+							quyenDoAn.Ngaynop = ngaynop.ToString("dd-MM-yyyy HH:mm:ss");
+						}
+						else
+						{
+							quyenDoAn.Ngaynop = "Chưa nộp bài";
+						}
 						listView.Items.Add(quyenDoAn.STT);
 						listView.Items[index].SubItems.Add(quyenDoAn.TenDetai);
 						listView.Items[index].SubItems.Add(quyenDoAn.Tennhom);
+						listView.Items[index].SubItems.Add(quyenDoAn.Ngaynop);
 						listView.Items[index].SubItems.Add(quyenDoAn.TenGV);
 						listView.Items[index].SubItems.Add(quyenDoAn.Diem);
 						index++;
@@ -674,12 +684,14 @@ namespace DatabaseConfig
 		}
 		public bool UploadNoidung(byte[] noidung,string tennoidung, string STT, SqlConnection connection)
 		{
-			string query = "Update QuyenDoan set QuyenDoan.Noidung = @noidung, QuyenDoan.TenFile = @tennoidung where QuyenDoan.Manhom = @stt";
+			string query = "Update QuyenDoan set QuyenDoan.Ngaynop = @ngaynop, QuyenDoan.Noidung = @noidung, QuyenDoan.TenFile = @tennoidung where QuyenDoan.Manhom = @stt";
 			if (connection != null)
 			{
 				SetCommand(query, connection);
 				if (Command != null)
 				{
+					string format = "dd-MM-yyyy HH:mm:ss";
+					Command.Parameters.Add("@ngaynop", SqlDbType.DateTime).Value = DateTime.Now.ToString(format);
 					Command.Parameters.Add("@noidung", SqlDbType.VarBinary, 2000000000).Value = noidung;
 					Command.Parameters.Add("@stt", SqlDbType.Int).Value = STT;
 					Command.Parameters.Add("@tennoidung", SqlDbType.NVarChar, 50).Value = tennoidung;

@@ -14,6 +14,7 @@ namespace QLDoAn_Demo
 {
 	public partial class ThemTVForm : Form
 	{
+		SinhVien sinhvien = new SinhVien();
 		public DKNhomForm dkNhom;
 		public string MasoDetai;
 		public string MSSV;
@@ -66,11 +67,16 @@ namespace QLDoAn_Demo
 					}
 					else
 					{
-						lvTV.Items.Add(lvSV.SelectedItems[0].Text);
-						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[0].Text);
-						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[1].Text);
-						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[2].Text);
+						sinhvien.MSSV = lvSV.SelectedItems[0].Text;
+						sinhvien.TenSV = lvSV.SelectedItems[0].SubItems[1].Text;
+						sinhvien.NgaySinh = lvSV.SelectedItems[0].SubItems[2].Text;
+						sinhvien.GioiTinh = lvSV.SelectedItems[0].SubItems[3].Text;
+						lvTV.Items.Add(sinhvien.MSSV);
+						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.TenSV);
+						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.NgaySinh);
+						lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.GioiTinh);
 						MessageBox.Show("Thêm thành viên thành công !");
+						lvSV.Items.RemoveAt(lvSV.SelectedItems[0].Index);
 					}
 				}
 				else
@@ -83,11 +89,16 @@ namespace QLDoAn_Demo
 						}
 						else
 						{
-							lvTV.Items.Add(lvSV.SelectedItems[0].Text);
-							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[1].Text);
-							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[2].Text);
-							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(lvSV.SelectedItems[0].SubItems[3].Text);
+							sinhvien.MSSV = lvSV.SelectedItems[0].Text;
+							sinhvien.TenSV = lvSV.SelectedItems[0].SubItems[1].Text;
+							sinhvien.NgaySinh = lvSV.SelectedItems[0].SubItems[2].Text;
+							sinhvien.GioiTinh = lvSV.SelectedItems[0].SubItems[3].Text;
+							lvTV.Items.Add(sinhvien.MSSV);
+							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.TenSV);
+							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.NgaySinh);
+							lvTV.Items[lvTV.Items.Count - 1].SubItems.Add(sinhvien.GioiTinh);
 							MessageBox.Show("Thêm thành viên thành công !");
+							lvSV.Items.RemoveAt(lvSV.SelectedItems[0].Index);
 						}
 					}
 				}
@@ -104,6 +115,10 @@ namespace QLDoAn_Demo
 			{
 				lvTV.Items.RemoveAt(lvTV.Items.Count - 1);
 				MessageBox.Show("Xóa thành viên thành công !");
+				DbConfig dbConfig = new DbConfig();
+				dbConfig.Connection.Open();
+				dbConfig.ReadAllSVKhongNhomExcept(MSSV, dbConfig.Connection, lvSV);
+				dbConfig.Connection.Close();
 			}
 		}
 

@@ -31,15 +31,15 @@
 			this.lvDSDetai = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btnChon = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtTraCuu = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnChitiet = new System.Windows.Forms.Button();
-			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.SuspendLayout();
 			// 
 			// lvDSDetai
@@ -54,6 +54,7 @@
 			this.lvDSDetai.GridLines = true;
 			this.lvDSDetai.HideSelection = false;
 			this.lvDSDetai.Location = new System.Drawing.Point(65, 99);
+			this.lvDSDetai.MultiSelect = false;
 			this.lvDSDetai.Name = "lvDSDetai";
 			this.lvDSDetai.Size = new System.Drawing.Size(730, 343);
 			this.lvDSDetai.TabIndex = 0;
@@ -71,11 +72,21 @@
 			this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.columnHeader2.Width = 315;
 			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Text = "Tên giáo viên hướng dẫn";
+			this.columnHeader4.Width = 150;
+			// 
 			// columnHeader3
 			// 
 			this.columnHeader3.Text = "Loại đồ án";
 			this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.columnHeader3.Width = 80;
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Trạng thái";
+			this.columnHeader5.Width = 100;
 			// 
 			// btnChon
 			// 
@@ -137,16 +148,6 @@
 			this.btnChitiet.TabIndex = 1;
 			this.btnChitiet.Text = "Xem chi tiết";
 			this.btnChitiet.UseVisualStyleBackColor = false;
-			// 
-			// columnHeader4
-			// 
-			this.columnHeader4.Text = "Tên giáo viên hướng dẫn";
-			this.columnHeader4.Width = 150;
-			// 
-			// columnHeader5
-			// 
-			this.columnHeader5.Text = "Trạng thái";
-			this.columnHeader5.Width = 100;
 			// 
 			// DKDoAnForm
 			// 
